@@ -1,0 +1,44 @@
+// human.h
+#ifndef HUMAN_H
+#define HUMAN_H
+
+#include <string>
+
+struct Human {
+    std::string name;
+    int age;
+};
+
+void requestUserData(Human &person);
+
+#endif // HUMAN_H
+
+
+// human.cpp
+#include "human.h"
+#include <iostream>
+
+void requestUserData(Human &person) {
+    std::cout << "Enter your name: ";
+    std::getline(std::cin, person.name);
+
+    std::cout << "Enter your age: ";
+    std::cin >> person.age;
+}
+
+
+// main.cpp
+#include <iostream>
+#include "human.h"
+
+int main() {
+    Human user;
+
+    requestUserData(user);
+
+    std::cout << "\nUser Information:\n";
+    std::cout << "Name: " << user.name << "\n";
+    std::cout << "Age: " << user.age << "\n";
+
+    return 0;
+}
